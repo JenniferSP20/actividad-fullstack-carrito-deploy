@@ -1,11 +1,10 @@
 const app = require('./src/app')
 const sequelize = require('./src/config/Database')
 
-
 // IMPORTAR MODELO
 require('./src/models/Product')
 
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 async function main() {
 
@@ -20,13 +19,17 @@ async function main() {
 
     console.log('Tablas sincronizadas')
 
-    app.listen(PORT, () => {
-      console.log(`Servidor corriendo en puerto ${PORT}`)
-    })
-
   } catch (error) {
-    console.log(error)
+
+    console.log('Error de conexión DB:')
+    console.log(error.message)
+
   }
+
+  // EL SERVIDOR SIEMPRE INICIA
+  app.listen(PORT, () => {
+    console.log(`Servidor corriendo en puerto ${PORT}`)
+  })
 
 }
 
