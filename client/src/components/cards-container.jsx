@@ -1,29 +1,19 @@
-import { useEffect } from 'react'
 import { ProductCard } from './product-card'
 import { useCartStore } from '../store/cart.store'
 
 export const CardsContainer = () => {
 
-  const {
-    products,
-    getProducts
-  } = useCartStore()
-
-  useEffect(() => {
-
-    getProducts()
-
-  }, [])
+  const { products } = useCartStore()
 
   return (
 
     <div className='grid md:grid-cols-3 gap-6 mb-6 w-[327px] md:w-[688px]'>
 
       {
-        products.map(item => (
+        products.map((item, index) => (
 
           <ProductCard
-            key={item.id}
+            key={index}
             {...item}
           />
 
