@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import axios from 'axios'
+import data from '../../data.json'
 
 export const useCartStore = create((set, get) => ({
 
@@ -9,24 +9,11 @@ export const useCartStore = create((set, get) => ({
 
   products: [],
 
-  // CARGAR PRODUCTOS DESDE BACKEND
-  getProducts: async () => {
+  getProducts: () => {
 
-    try {
-
-      const response = await axios.get(
-        'https://actividad-fullstack-carrito.onrender.com/api/products'
-      )
-
-      set({
-        products: response.data
-      })
-
-    } catch (error) {
-
-      console.log(error)
-
-    }
+    set({
+      products: data
+    })
 
   },
 
