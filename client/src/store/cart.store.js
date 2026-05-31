@@ -7,15 +7,7 @@ export const useCartStore = create((set, get) => ({
 
   cart: [],
 
-  products: [],
-
-  getProducts: () => {
-
-    set({
-      products: data
-    })
-
-  },
+  products: data,
 
   toggleClose: () => set((state) => ({
     isClose: !state.isClose
