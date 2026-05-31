@@ -15,7 +15,7 @@ export const useCartStore = create((set, get) => ({
     try {
 
       const response = await axios.get(
-        'http://localhost:3000/api/products'
+        'https://actividad-fullstack-carrito.onrender.com/api/products'
       )
 
       set({
