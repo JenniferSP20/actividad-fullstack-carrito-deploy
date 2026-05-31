@@ -35,7 +35,7 @@ export const useCartStore = create((set, get) => ({
 
   totalCard: () =>
     get().cart.reduce(
-      (acc, item) => acc + (item.quantity * item.price),
+      (acc, item) => acc + item.quantity * item.price,
       0
     )
 
